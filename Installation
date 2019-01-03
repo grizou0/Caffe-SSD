@@ -19,7 +19,9 @@ Dépendance:
     make FC=gfortran
     sudo make install    ->intallation en opt/OpenBLAS/
     ajouter dans .bashrc ->
+    sudo nano ~/.bashrc
     export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH   
+    source ~/.bashrc
     (les librairies sont logées en opt/OpenBLAS )
 ----------------------------------------------------------    
 Installer OpenCV-2.4.13 (voir reference instruction readme)
