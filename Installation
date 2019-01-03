@@ -10,7 +10,10 @@ caffe dépend de plusieurs installations pour son fonctionnement.
 
 Dépendance: 
   Installation cuda 8.0 pour utiliser le GPU carte graphique
-  
+       https://developer.nvidia.com/cuda-80-ga2-download-archive  
+       sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+       sudo apt-get update
+       sudo apt-get install cuda
   Installer Openblas
     sudo apt-get install git-core
     sudo apt-get install gfortran
