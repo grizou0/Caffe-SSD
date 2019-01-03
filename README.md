@@ -21,6 +21,6 @@ https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
 Second Step
 -----------
 On ajoute cuda. Cela permet de faire tourner caffe en mode GPU
-
+https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU
 
 
