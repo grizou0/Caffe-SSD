@@ -1,0 +1,152 @@
+Download caffe-ssd: https://github.com/weiliu89/caffe/tree/ssd
+Dépendance: 
+  Installation cuda 8.0 pour utiliser le GPU carte graphique
+  
+  Installer Openblas
+    sudo apt-get install gfortran
+    git clone https://github.com/xianyi/OpenBLAS
+    cd OpenBLAS
+    make FC=gfortran
+    sudo make install    ->intallation en opt/OpenBLAS/
+    ajouter dans .bashrc ->
+    export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH   
+    
+Installer OpenCV-2.4.13 (voir reference instruction readme)
+
+Installer Boost =>1.55
+  cd boost_1_62_0
+  sudo apt-get update && sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-  essential libbz2-dev libboost-all-dev
+  ./bootstrap.sh --prefix=/usr/local
+  sudo ./b2 install
+------------------- 
+Librairie dépendante:
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+sudo apt-get install --no-install-recommends libboost-all-dev
+sudo apt-get install libatlas-base-dev
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+sudo apt-get install git-core
+
+git clone https://github.com/BVLC/caffe.git
+cd caffe
+Recherche des dépendance caffe et python
+----------------------------------------
+find -name requirements.txt    
+./examples/web_demo/requirements.txt
+./python/requirements.txt
+
+cd python
+sudo apt install python-pip
+
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+
+python -m site
+->
+sys.path = [
+    '/home/jp/.local/install/caffe',
+    '/usr/lib/python2.7',
+    '/usr/lib/python2.7/plat-x86_64-linux-gnu',
+    '/usr/lib/python2.7/lib-tk',
+    '/usr/lib/python2.7/lib-old',
+    '/usr/lib/python2.7/lib-dynload',
+    '/home/jp/.local/lib/python2.7/site-packages',
+    '/usr/local/lib/python2.7/dist-packages',
+    '/usr/lib/python2.7/dist-packages',
+]
+USER_BASE: '/home/jp/.local' (exists)
+USER_SITE: '/home/jp/.local/lib/python2.7/site-packages' (exists)
+ENABLE_USER_SITE: True
+-----------------------------------------------------------------
+Apres installation des dépendances, on revient dans le repertoire caffe (ou caffe-ssd)
+
+cp Makefile.config.example Makefile.config
+nano Makefile.config
+->change
+
+USE_OPENCV := 1
+USE_LEVELDB := 1
+USE_LMDB := 1
+OPENCV_VERSION := 2.4.13
+CUDA_DIR := /usr/local/cuda
+CUDA_ARCH :=
+# -gencode arch=compute_20,code=sm_20 \ ligne a supprimer car non fonctionnel avec cuda 8.0
+#             -gencode arch=compute_20,code=sm_21 \
+             -gencode arch=compute_30,code=sm_30 \
+             -gencode arch=compute_35,code=sm_35 \
+             -gencode arch=compute_50,code=sm_50 \
+             -gencode arch=compute_52,code=sm_52 \
+             -gencode arch=compute_61,code=sm_61
+BLAS_INCLUDE := /opt/OpenBLAS/include
+BLAS_LIB := /opt/OpenBLAS/lib
+PYTHON_LIB := /usr/lib
+WITH_PYTHON_LAYER := 1
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
+TEST_GPUID := 0
+ WITH_PYTHON_LAYER := 1
+
+
+PYTHON_INCLUDE := /usr/include/python2.7 \
+                /home/jp/.local/lib/python2.7/site-packages/numpy/core/include
+(recherche find /home/jp/.local/lib/python2.7/site-packages -name numpy)
+ WITH_PYTHON_LAYER := 1
+--------------------------------------------------------------------------------
+on modifie le fichier path
+sudo nano ~/.bashrc
+
+export PYTHONPATH=/home/jp/.local/install/caffe/python
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=/home/jp/caffe-ssd/python
+
+source ~/.bashrc
+----------------------------------------------------------------------------------
+make all
+Si erreur
+---> ./include/caffe/util/hdf5.hpp:7:18: fatal error: hdf5.h: Aucun fichier ou dossier de ce type
+
+ls /usr/include/hdf5/serial
+jp@jp-G750JH:~/.local/install/caffe$ find /usr/lib -name hdf5
+/usr/lib/x86_64-linux-gnu/hdf5
+editer Makefile.config et modifier
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
+
+make clean
+make all
+make test
+make runtest
+---------------------------------------------------------------------------------------
+Normalement, il n'y a pas d'erreur....
+configuration python
+--------------------
+make pycaffe
+make pytest
+->erreur import skimage.io
+->sudo apt-get install python-skimage
+make pytest
+->erreur ImportError: No module named pydot
+->pip install pydot
+sudo apt-get install graphviz
+->make pytest ->ok
+
+import caffe dans python donne une erreur
+->repertoire se trouve dans python/caffe/....
+echo $PYTHONPATH ne donne rien
+editer 
+sudo nano ~/.bashrc
+export PYTHONPATH=/home/jp/.local/install/caffe/python
+source ~/.bashrc
+
+au lancement de python a la racine caffe (ou caffe-ssd) 
+>> import cv2      ->ok
+>> import caffe    ->ok
+sinon, revoir le PYTHONPATH dans le fichier bashrc.
+
+
+
+
+
+
