@@ -37,5 +37,5 @@ nvidia-smi
 Compilation caffe
 -----------------
 cd caffe
-nanmo Makefile.config
+nano Makefile.config
 
