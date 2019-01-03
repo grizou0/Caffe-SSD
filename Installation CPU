@@ -1,0 +1,157 @@
+https://www.youtube.com/watch?v=DnIs4DRjNL4   pour installation mode CPU
+
+
+https://chunml.github.io/ChunML.github.io/project/Installing-Caffe-Ubuntu/   pour installation
+Ref:caffe framework
+caffe.berkeleyvision.org
+installation->ubuntu 16.04 instruction
+https://github.com/weiliu89/caffe/tree/ssd
+https://github.com/grizou0/Caffe-SSD/tree/master
+
+
+------------------------------------------------------------------------
+http://caffe.berkeleyvision.org/installation.html
+
+Apres de long essais , j'ai enfin trouver la solution pour installer correctement
+le modele caffe.
+Dans un premier temps, on install caffe sous ubuntu16.04 en mode CPU.
+On ajoute ensuite les modules désiré.
+Ubuntu16.04 en mode CPU ne fonctionne pas. Seul le mode GPU (CUDA) fonctionne.
+On ajoitera CUDA après.
+
+Installation mode CPU
+---------------------
+Installation des dépendances
+-----------------------------
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+sudo apt-get install --no-install-recommends libboost-all-dev
+
+Installation BLAS
+-----------------
+sudo apt-get install libatlas-base-dev
+
+sudo apt-get install python
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+sudo apt-get install python-pip
+
+
+Remarque: Cuda doit être installé pour Ubuntu 16.04 (se fera après)
+    sudo apt-get update
+    sudo apt-get install git
+
+se placer dans la racine home/xx/
+git clone https://github.com/BVLC/caffe.git
+cd caffe
+find -name requirements.txt
+         ./python/requirements.txt
+         ./examples/web_demo/requirements.txt
+cd python
+for req in $(cat requirements.txt); do pip install $req; done
+cd ..
+python -m site
+->
+  sys.path = [
+      '/home/jp/caffe/python',
+      '/usr/lib/python2.7',
+      '/usr/lib/python2.7/plat-x86_64-linux-gnu',
+      '/usr/lib/python2.7/lib-tk',
+      '/usr/lib/python2.7/lib-old',
+      '/usr/lib/python2.7/lib-dynload',
+      '/home/jp/.local/lib/python2.7/site-packages',
+      '/usr/local/lib/python2.7/dist-packages',
+      '/usr/lib/python2.7/dist-packages',
+]
+  USER_BASE: '/home/jp/.local' (exists)
+  USER_SITE: '/home/jp/.local/lib/python2.7/site-packages' (exists)
+  ENABLE_USER_SITE: True
+-------------------------------
+Caffe peut etre compiler par cmake (communauté), ou par Make (Makefile)
+cp Makefile.config.example Makefile.config
+Recherche Path librairies:
+
+jp@jp-G750JH://$ find /usr -name hdf5
+/usr/include/hdf5
+/usr/lib/x86_64-linux-gnu/hdf5
+
+
+nano Makefile.config
+->modifier:
+
+CPU_ONLY :=1
+....
+# NOTE: this is required only if you will compile the python interface.
+# We need to be able to find Python.h and numpy/arrayobject.h.
+PYTHON_INCLUDE := /usr/include/python2.7 \
+                 /home/jp/.local/lib/python2.7/site-packages/numpy/core/include
+....
+# Uncomment to support layers written in Python (will link against Python libs)
+WITH_PYTHON_LAYER := 1
+.....
+# Whatever else you find you need goes here.
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu$
+...
+
+make all
+make test
+make runtest
+
+[----------] Global test environment tear-down
+[==========] 1162 tests from 152 test cases ran. (41557 ms total)
+[  PASSED  ] 1162 tests.
+
+-----------------------------------------
+Configuration python
+--------------------
+Suivant python/requirements.txt 
+pip install pydot
+sudo apt-get install graphviz
+sudo apt-get install python-matplotlib python-numpy python-pil python-scipy
+sudo apt-get install build-essential cython
+sudo apt-get install python-skimage
+
+make pycaffe
+make pytest
+ -> 
+I0103 20:11:49.527552 31529 layer_factory.hpp:77] Creating layer input
+I0103 20:11:49.527559 31529 net.cpp:86] Creating Layer input
+I0103 20:11:49.527562 31529 net.cpp:382] input -> data
+I0103 20:11:49.527570 31529 net.cpp:124] Setting up input
+I0103 20:11:49.527573 31529 net.cpp:131] Top shape: 10 9 8 (720)
+I0103 20:11:49.527577 31529 net.cpp:139] Memory required for data: 2880
+I0103 20:11:49.527581 31529 layer_factory.hpp:77] Creating layer mul10
+I0103 20:11:49.527599 31529 net.cpp:86] Creating Layer mul10
+I0103 20:11:49.527603 31529 net.cpp:408] mul10 <- data
+I0103 20:11:49.527608 31529 net.cpp:382] mul10 -> mul10
+I0103 20:11:49.527631 31529 net.cpp:124] Setting up mul10
+I0103 20:11:49.527637 31529 net.cpp:131] Top shape: 10 9 8 (720)
+I0103 20:11:49.527639 31529 net.cpp:139] Memory required for data: 5760
+I0103 20:11:49.527642 31529 layer_factory.hpp:77] Creating layer mul2
+I0103 20:11:49.527655 31529 net.cpp:86] Creating Layer mul2
+I0103 20:11:49.527659 31529 net.cpp:408] mul2 <- mul10
+I0103 20:11:49.527664 31529 net.cpp:382] mul2 -> mul2
+I0103 20:11:49.527681 31529 net.cpp:124] Setting up mul2
+I0103 20:11:49.527686 31529 net.cpp:131] Top shape: 10 9 8 (720)
+I0103 20:11:49.527689 31529 net.cpp:139] Memory required for data: 8640
+I0103 20:11:49.527693 31529 net.cpp:202] mul2 does not need backward computation.
+I0103 20:11:49.527696 31529 net.cpp:202] mul10 does not need backward computation.
+I0103 20:11:49.527699 31529 net.cpp:202] input does not need backward computation.
+I0103 20:11:49.527703 31529 net.cpp:244] This network produces output mul2
+I0103 20:11:49.527707 31529 net.cpp:257] Network initialization done.
+..
+----------------------------------------------------------------------
+Ran 52 tests in 7.872s
+
+OK
+Une derniere chose, ajouter le PATH caffe au Python:
+sudo nano ~/.bashrc
+export PYTHONPATH=/home/jp/caffe/python
+source ~/.bashrc
+
+On verifie 
+python
+>>import caffe
+--------------------------------------------------------------------------
+Caffe est ok en mode CPU
+
+
