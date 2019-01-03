@@ -12,6 +12,7 @@ Dépendance:
   Installation cuda 8.0 pour utiliser le GPU carte graphique
   
   Installer Openblas
+    sudo apt-get install git-core
     sudo apt-get install gfortran
     git clone https://github.com/xianyi/OpenBLAS
     cd OpenBLAS
