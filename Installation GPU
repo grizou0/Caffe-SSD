@@ -1,2 +1,5 @@
 Comme je l'ai dis, Ubuntu16.04 ne fonctionne pas en mode CPU, pas de compilation possible.
 D'après les essais, on doit ajouter CUDA 8.0 avec Ubuntu 16.04.
+Dans un premier temps,s'assurer que caffe sous CPU est correctement installé.
+https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
+-------------------------------------------------------------------
