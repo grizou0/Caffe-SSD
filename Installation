@@ -48,6 +48,7 @@ Installer OpenCV-2.4.13 (voir reference instruction readme)
               make all -j8 # 8 cores
               sudo make install
               sudo ldconfig
+              (on retrouve les fichiers dans urs/local/bin, usr/local/lib et usr/local/inlcude )
 ----------------------------              
 Installer Boost =>1.55   Télécharger la version boost_1_62_0, unzip.
   cd boost_1_62_0
