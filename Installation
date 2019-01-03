@@ -105,6 +105,10 @@ Installation Opencv -2.4.13
               sudo make install
               sudo ldconfig
               (on retrouve les fichiers dans urs/local/bin, usr/local/lib et usr/local/inlcude )
+              test ->lancer python
+              >> import cv2
+              si erreur, sudo pip install opencv-python
+
 -------------------------------------------------------------------------------------------------
 Une fois Opencv installé, on remodifie Makefile.config
 nano Makefile.config
