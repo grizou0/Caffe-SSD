@@ -1,4 +1,13 @@
+Mon but étant de créer un caffemodel personnel utilisable avec le module Movidius intel.
+Après de longs essais , je suis repartis sur une nouvelle installation ubuntu 16.04 (caffe ne fonctionne pas sur la version 18).
+sudo apt-update 
+sudo apt-upgrade -y
+
+Installation 
+------------
 Download caffe-ssd: https://github.com/weiliu89/caffe/tree/ssd
+caffe dépend de plusieurs installations pour son fonctionnement.
+
 Dépendance: 
   Installation cuda 8.0 pour utiliser le GPU carte graphique
   
@@ -10,9 +19,9 @@ Dépendance:
     sudo make install    ->intallation en opt/OpenBLAS/
     ajouter dans .bashrc ->
     export LD_LIBRARY_PATH=/opt/OpenBLAS/lib:$LD_LIBRARY_PATH   
-    
+    (les librairies sont logées en opt/OpenBLAS )
 Installer OpenCV-2.4.13 (voir reference instruction readme)
-
+   
 Installer Boost =>1.55
   cd boost_1_62_0
   sudo apt-get update && sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-  essential libbz2-dev libboost-all-dev
@@ -27,12 +36,13 @@ sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 sudo apt-get install git-core
 
 git clone https://github.com/BVLC/caffe.git
-cd caffe
-Recherche des dépendance caffe et python
-----------------------------------------
+cd caffe ou caffe-ssd 
+Recherche des dépendances caffe et python
+-----------------------------------------
 find -name requirements.txt    
 ./examples/web_demo/requirements.txt
 ./python/requirements.txt
+ces commandes donnent une référence des dépendances python et caffe.
 
 cd python
 sudo apt install python-pip
@@ -60,7 +70,7 @@ ENABLE_USER_SITE: True
 Apres installation des dépendances, on revient dans le repertoire caffe (ou caffe-ssd)
 
 cp Makefile.config.example Makefile.config
-nano Makefile.config
+nano Makefile.config                            edition du Makefile.config (on ne modifie pas le makefile)
 ->change
 
 USE_OPENCV := 1
@@ -69,7 +79,7 @@ USE_LMDB := 1
 OPENCV_VERSION := 2.4.13
 CUDA_DIR := /usr/local/cuda
 CUDA_ARCH :=
-# -gencode arch=compute_20,code=sm_20 \ ligne a supprimer car non fonctionnel avec cuda 8.0
+# -gencode arch=compute_20,code=sm_20 \                   ligne a supprimer car non fonctionnel avec cuda 8.0
 #             -gencode arch=compute_20,code=sm_21 \
              -gencode arch=compute_30,code=sm_30 \
              -gencode arch=compute_35,code=sm_35 \
@@ -83,7 +93,7 @@ WITH_PYTHON_LAYER := 1
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
 TEST_GPUID := 0
- WITH_PYTHON_LAYER := 1
+WITH_PYTHON_LAYER := 1
 
 
 PYTHON_INCLUDE := /usr/include/python2.7 \
