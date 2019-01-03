@@ -55,6 +55,7 @@ Installer Boost =>1.55   Télécharger la version boost_1_62_0, unzip.
   sudo apt-get update && sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-  essential libbz2-dev libboost-all-dev
   ./bootstrap.sh --prefix=/usr/local
   sudo ./b2 install
+  (on retrouve les fichiers dans urs/local/lib et urs/local/include/boost)
 ------------------- 
 Librairie dépendante:
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
