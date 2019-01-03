@@ -16,4 +16,11 @@ First step
 ----------
 Depuis une nouvelle installation Ubuntu16.04, on install caffe en mode CPU
 Ubuntu 16.04 ne compile pas en mode CPU , mais c'est un premier pas....
+https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
+
+Second Step
+-----------
+On ajoute cuda. Cela permet de faire tourner caffe en mode GPU
+
+
 
