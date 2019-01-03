@@ -49,7 +49,7 @@ Installer OpenCV-2.4.13 (voir reference instruction readme)
               sudo make install
               sudo ldconfig
 ----------------------------              
-Installer Boost =>1.55
+Installer Boost =>1.55   Télécharger la version boost_1_62_0, unzip.
   cd boost_1_62_0
   sudo apt-get update && sudo apt-get install build-essential g++ python-dev autotools-dev libicu-dev build-  essential libbz2-dev libboost-all-dev
   ./bootstrap.sh --prefix=/usr/local
