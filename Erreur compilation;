@@ -16,4 +16,21 @@ collect2: error: ld returned 1 exit status
 Makefile:635 : la recette pour la cible « .build_release/tools/upgrade_net_proto_text.bin » a échouée
 
 -----> reference sur opencv, une version opencv est installée (dans mon cas opencv-3.4.0)
+Même si le fichier Makefile.config ne demande pas de compiler opencv, on doit introduire la version dans ce fichier:
+# Uncomment if you're using OpenCV 3
+OPENCV_VERSION := 3 # j'ai la version opencv-3.4
+
+-->
+AR -o .build_release/lib/libcaffe.a
+LD -o .build_release/lib/libcaffe.so.1.0.0
+CXX tools/upgrade_net_proto_text.cpp
+CXX/LD -o .build_release/tools/upgrade_net_proto_text.bin
+CXX tools/upgrade_net_proto_binary.cpp
+CXX/LD -o .build_release/tools/upgrade_net_proto_binary.bin
+CXX tools/compute_image_mean.cpp
+CXX/LD -o .build_release/tools/compute_image_mean.bin
+...... compilation ok
+compute image mean permet d'utiliser opencv pour la reduction d'image dans le process lmdb. (create_data...)
+---------------------------------------------------------------------------------------------------------------------------------
+
 
