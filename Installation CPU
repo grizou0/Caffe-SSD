@@ -179,7 +179,7 @@ CPU_ONLY := 1
 # ALLOW_LMDB_NOLOCK := 1
 
 # Uncomment if you're using OpenCV 3
-# OPENCV_VERSION := 3
+# OPENCV_VERSION := 3 #enlever le "#e que si une versvio opencv 3 ou plus est installée, même si on n'utilise pas (USE_OPENCV)
 
 # To customize your choice of compiler, uncomment and set the following.
 # N.B. the default for Linux is g++ and the default for OSX is clang++
