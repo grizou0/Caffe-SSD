@@ -144,16 +144,64 @@ make clean
 make all     ->ok
 make test    ->ok
 make runtest ->ok
+[----------] 6 tests from CuDNNLRNLayerTest/1, where TypeParam = double
+[ RUN      ] CuDNNLRNLayerTest/1.TestGradientWithinChannel
+[       OK ] CuDNNLRNLayerTest/1.TestGradientWithinChannel (3327 ms)
+[ RUN      ] CuDNNLRNLayerTest/1.TestForwardWithinChannel
+[       OK ] CuDNNLRNLayerTest/1.TestForwardWithinChannel (1 ms)
+[ RUN      ] CuDNNLRNLayerTest/1.TestForwardAcrossChannelsCuDNN
+[       OK ] CuDNNLRNLayerTest/1.TestForwardAcrossChannelsCuDNN (0 ms)
+[ RUN      ] CuDNNLRNLayerTest/1.TestGradientAcrossChannelsLargeRegionCuDNN
+[       OK ] CuDNNLRNLayerTest/1.TestGradientAcrossChannelsLargeRegionCuDNN (2112 ms)
+[ RUN      ] CuDNNLRNLayerTest/1.TestGradientAcrossChannelsCuDNN
+[       OK ] CuDNNLRNLayerTest/1.TestGradientAcrossChannelsCuDNN (2088 ms)
+[ RUN      ] CuDNNLRNLayerTest/1.TestForwardAcrossChannelsLargeRegionCuDNN
+[       OK ] CuDNNLRNLayerTest/1.TestForwardAcrossChannelsLargeRegionCuDNN (1 ms)
+[----------] 6 tests from CuDNNLRNLayerTest/1 (7529 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2207 tests from 285 test cases ran. (563456 ms total)
+[  PASSED  ] 2207 tests.
+
 ----------------------------------
 Configuration python
 --------------------
+make pycaffe
+make pytest
 
-# set environment variables
-Apres vérification de l'endroit:
+->ImportError: No module named skimage.io
+sudo apt-get install python-skimage
+
+ImportError: No module named pydot
+sudo pip install pydot
+sudo apt-get install graphviz
+
+I0104 23:54:49.319777 21109 net.cpp:244] This network produces output B
+I0104 23:54:49.319785 21109 net.cpp:257] Network initialization done.
+........
+----------------------------------------------------------------------
+Ran 52 tests in 8.466s
+
+OK
+
+--------------------------------------------------------------------------------------------------
+reste à tester python et caffe
+python
+>>> import caffe
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named caffe
+---->il faut entrer le path du python (changer le nom /home/nom/caffe suivant l'ordinateur)
 sudo nano ~/.bashrc
-
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
+export PYTHONPATH=/home/jp/caffe/python
 source ~/.bashrc
 
+jp@jp-G750JH:~/caffe$ python
+Python 2.7.12 (default, Nov 12 2018, 14:36:49) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import caffe
+>>> import cv2
+>>> 
+-----------------------------------------------------
+Voila, on peut passer à la suite, creation d'un caffemodel.
