@@ -1,0 +1,18 @@
+/usr/bin/ld : ne peut trouver -lhdf5_hl
+/usr/bin/ld : ne peut trouver -lhdf5
+collect2: error: ld returned 1 exit status
+Makefile:582 : la recette pour la cible « .build_release/lib/libcaffe.so.1.0.0 » a échouée
+
+---->  dans Makefile.config, modifier la path:
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
+---------------------------------------------------------------------------------------------------------------------------------
+CXX tools/upgrade_net_proto_text.cpp
+CXX/LD -o .build_release/tools/upgrade_net_proto_text.bin
+.build_release/lib/libcaffe.so : référence indéfinie vers « cv::imread(cv::String const&, int) »
+.build_release/lib/libcaffe.so : référence indéfinie vers « cv::imencode(cv::String const&, cv::_InputArray const&, std::vector<unsigned char, std::allocator<unsigned char> >&, std::vector<int, std::allocator<int> > const&) »
+.build_release/lib/libcaffe.so : référence indéfinie vers « cv::imdecode(cv::_InputArray const&, int) »
+collect2: error: ld returned 1 exit status
+Makefile:635 : la recette pour la cible « .build_release/tools/upgrade_net_proto_text.bin » a échouée
+
+----->
