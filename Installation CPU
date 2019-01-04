@@ -1,17 +1,14 @@
+Reference:
+---------
 https://www.youtube.com/watch?v=DnIs4DRjNL4   pour installation mode CPU
-
-
 https://chunml.github.io/ChunML.github.io/project/Installing-Caffe-Ubuntu/   pour installation
 Ref:caffe framework
 caffe.berkeleyvision.org
 installation->ubuntu 16.04 instruction
 https://github.com/weiliu89/caffe/tree/ssd
 https://github.com/grizou0/Caffe-SSD/tree/master
-
-
-------------------------------------------------------------------------
 http://caffe.berkeleyvision.org/installation.html
-
+------------------------------------------------------------------------------------------------------
 Apres de long essais , j'ai enfin trouver la solution pour installer correctement
 le modele caffe.
 Dans un premier temps, on install caffe sous ubuntu16.04 en mode CPU.
@@ -29,13 +26,11 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 Installation BLAS
 -----------------
 sudo apt-get install libatlas-base-dev
-
 sudo apt-get install python
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 sudo apt-get install python-pip
 
 
-Remarque: Cuda doit être installé pour Ubuntu 16.04 (se fera après)
     sudo apt-get update
     sudo apt-get install git
 
@@ -280,4 +275,5 @@ TEST_GPUID := 0
 # enable pretty build (comment to see full commands)
 Q ?= @
 --------------------------------------------------------------------------------------------------------------
+Pour l'installation en mpode GPU (obligatoire avec ubuntu 16.04),Cuda doit être installé.
 
