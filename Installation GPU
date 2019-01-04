@@ -5,8 +5,7 @@ https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
 -------------------------------------------------------------------
 Installation CUDA8-0
 --------------------
-Le plus simple est d'executer la commande
-sudo apt-get -y install cuda-8-0
+Voir installation cuda 
 
 # set environment variables
 Apres vérification de l'endroit:
