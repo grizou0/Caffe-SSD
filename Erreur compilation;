@@ -15,4 +15,5 @@ CXX/LD -o .build_release/tools/upgrade_net_proto_text.bin
 collect2: error: ld returned 1 exit status
 Makefile:635 : la recette pour la cible « .build_release/tools/upgrade_net_proto_text.bin » a échouée
 
------>
+-----> reference sur opencv, une version opencv est installée (dans mon cas opencv-3.4.0)
+
