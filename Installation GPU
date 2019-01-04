@@ -13,6 +13,28 @@ Opencv-3.4.0
 CUDA-8.0
 cuDNN v6.0 (ne pas utiliser les versions inférieures)
 ---------------------------------------------------------------------------------------------------------------------------
+Mon fichier Makefile reste identique sauf :
+# cuDNN acceleration switch (uncomment to build with cuDNN).
+USE_CUDNN := 1
+
+# CPU-only switch (uncomment to build without GPU support).
+#CPU_ONLY := 1
+
+# uncomment to disable IO dependencies and corresponding data layers
+# USE_OPENCV := 0
+# USE_LEVELDB := 0
+# USE_LMDB := 0
+# This code is taken from https://github.com/sh1r0/caffe-android-lib
+# USE_HDF5 := 0
+
+# uncomment to allow MDB_NOLOCK when reading LMDB files (only if necessary)
+#	You should not set this flag if you will be reading LMDBs with any
+#	possibility of simultaneous read and write
+# ALLOW_LMDB_NOLOCK := 1
+
+# Uncomment if you're using OpenCV 3
+OPENCV_VERSION := 3
+--------------------------------------------------------------------------------------------------------------------
 
 # set environment variables
 Apres vérification de l'endroit:
