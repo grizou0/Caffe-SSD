@@ -32,5 +32,27 @@ CXX/LD -o .build_release/tools/compute_image_mean.bin
 ...... compilation ok
 compute image mean permet d'utiliser opencv pour la reduction d'image dans le process lmdb. (create_data...)
 ---------------------------------------------------------------------------------------------------------------------------------
+CXX src/caffe/parallel.cpp
+NVCC src/caffe/solvers/adagrad_solver.cu
+nvcc fatal   : Unsupported gpu architecture 'compute_20'
+Makefile:604 : la recette pour la cible « .build_release/cuda/src/caffe/solvers/adagrad_solver.o » a échouée
+make: *** [.build_release/cuda/src/caffe/solvers/adagrad_solver.o] Erreur 1
+
+---> J'utilise CUDA-8.0, compute_20 n'est pas considéré.
+Je supprime la ligne dans Makefile.config
+# CUDA architecture setting: going with all of them.
+# For CUDA < 6.0, comment the *_50 through *_61 lines for compatibility.
+# For CUDA < 8.0, comment the *_60 and *_61 lines for compatibility.
+# For CUDA >= 9.0, comment the *_20 and *_21 lines for compatibility.
+CUDA_ARCH :=# -gencode arch=compute_20,code=sm_20 \
+		-gencode arch=compute_20,code=sm_21 \
+		-gencode arch=compute_30,code=sm_30 \
+		-gencode arch=compute_35,code=sm_35 \
+		-gencode arch=compute_50,code=sm_50 \
+		-gencode arch=compute_52,code=sm_52 \
+		-gencode arch=compute_60,code=sm_60 \
+		-gencode arch=compute_61,code=sm_61 \
+		-gencode arch=compute_61,code=compute_61
+-------------------------------------------------------------------------------------------------------------------------------
 
 
