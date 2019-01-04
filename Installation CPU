@@ -74,6 +74,11 @@ nano Makefile.config
 ->modifier:(voir référence Makefile.config en dessous)
 
 CPU_ONLY :=1
+
+# Uncomment if you're using OpenCV 3
+OPENCV_VERSION := 3 # obligatoire si opencv >2 est installé. Dans mon cas j'ai opencv-3.4.0
+                    # sinon laisser le "#"
+
 ....
 # NOTE: this is required only if you will compile the python interface.
 # We need to be able to find Python.h and numpy/arrayobject.h.
