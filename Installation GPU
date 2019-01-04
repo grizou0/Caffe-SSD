@@ -7,6 +7,13 @@ Installation CUDA8-0
 --------------------
 Voir installation cuda https://github.com/grizou0/CUDA
 
+Dans mon cas, j'ai installé caffe en mode CPU avec succès.
+Ma configuration est :
+Opencv-3.4.0
+CUDA-8.0
+cuDNN v6.0 (ne pas utiliser les versions inférieures)
+---------------------------------------------------------------------------------------------------------------------------
+
 # set environment variables
 Apres vérification de l'endroit:
 sudo nano ~/.bashrc
