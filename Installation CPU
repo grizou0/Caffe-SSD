@@ -282,4 +282,3 @@ TEST_GPUID := 0
 Q ?= @
 --------------------------------------------------------------------------------------------------------------
 Pour l'installation en mpode GPU (obligatoire avec ubuntu 16.04),Cuda doit être installé.
-
