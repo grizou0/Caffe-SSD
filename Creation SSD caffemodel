@@ -11,3 +11,10 @@ tar -xvf VOCtest_06-Nov-2007.tar
 -----------------------------------------------------------------------------------------
 On télécharge le modele caffe-SSD
 https://github.com/weiliu89/caffe/tree/ssd
+On copie le fichier caffe/Makefile.config ->caffe-SSD/Makefile.config
+et on reconfigure comme pour l'installation caffe en mode GPU
+make all
+make test
+make runtest
+------------------------------------------------------------------------------------------
+
