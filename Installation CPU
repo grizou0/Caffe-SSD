@@ -42,7 +42,7 @@ find -name requirements.txt
          ./python/requirements.txt
          ./examples/web_demo/requirements.txt
 cd python
-for req in $(cat requirements.txt); do pip install $req; done
+for req in $(cat requirements.txt); do sudo pip install $req; done
 cd ..
 python -m site
 ->
