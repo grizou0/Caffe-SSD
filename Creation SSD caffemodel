@@ -9,7 +9,7 @@ tar -xvf VOCtrainval_06-Nov-2007.tar
 tar -xvf VOCtest_06-Nov-2007.tar
 ->on retrouve un repertoire VOCdevkit, ces sont les images du train.
 -----------------------------------------------------------------------------------------
-On télécharge le modele caffe-SSD
+On télécharge le modele caffe-SSD 
 https://github.com/weiliu89/caffe/tree/ssd
 On copie le fichier caffe/Makefile.config ->caffe-SSD/Makefile.config
 et on reconfigure comme pour l'installation caffe en mode GPU (https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU)
@@ -53,17 +53,35 @@ Moyennant cette modification, si la compilation de caffe ne pose pas de problèm
 ------------------------------------------------------------------------------------------
 On commence enfin l'application........... 
 En test.........................................
+On télécharge le modele d'essai: https://drive.google.com/file/d/0BzKzrI_SkD1_WVVTSmQxU0dVRzA/view
+On crée un répertoire myssd dans la racine home/jp/myssd et on place
+les fichiers ainsi que les images VOVdevkit.
+Il faudra aussi les 2 scripts et le labelmap pour le lmdb se trouvant en caffe-ssd/data/VOC0712 ->
+create_data.sh, create_list.sh et labelmap_voc.prototxt;
 
 fichier de base à utilise:
+VOCdevkit                         les images de base pour le training
+deploy.prototxt
+solver.prototxt
+test.prototxt
+train.prototxt
+VGG_VOC0712_SSD_300x300_iter_120000.caffemodel
+VGG_ILSVRC_16_layers_fc_reduced_deploy.prototxt
+ssd_pascal.py
+score_ssd_pascal.py
+ssd_pascal_webcam.py             essai avec le caffemodel
+ssd_pascal.py
+create_data.sh                   creation base lmdb
+create_list.sh
+labelmap_voc.prototxt;           contient la liste des noms d'objets
 
-caffe-ssd/data/VOC0712/
-     create_list.sh
-     create_data.sh                 pour la creation des lmdb
-     labelmap_voc.prototxt          liste des noms répertoriés dans les images
- caffe-examples/ssd    
-    ssd_pascal.py                    pour le train
-    ssd_pascal_webcam.py             pour l'essai du model modelcaffe
-    
+Premier essai sur webcam avec le caffemodel
+--------------------------------------------
+
+
+python ssd_pascal_webcam.py
+
+
 Creation lmdb
 -------------
 Ici, on va créer un répertoire lmdb destiné au train.
