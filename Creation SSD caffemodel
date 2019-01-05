@@ -74,3 +74,10 @@ Ici, on va créer un répertoire lmdb destiné au train.
 #   - $HOME/data/VOCdevkit/VOC0712/lmdb/VOC0712_test_lmdb
 # and make soft links at examples/VOC0712/
 ./data/VOC0712/create_data.sh
+Training
+--------
+On lance python ssd_pascal.py
+
+Test du modele avec ssd_pascal_webcam.py
+----------------------------------------
+python ssd_pascal_webcam.py
