@@ -27,6 +27,7 @@ sinon, on a un abord sur le runtest
 make all
 make py
 make test
+make pytest
 make runtest
 Moyennant cette modification, si la compilation de caffe ne pose pas de problème, caffe-ssd passe sans problème également.
 [----------] 6 tests from GPUMathFunctionsTest/0, where TypeParam = float
