@@ -27,6 +27,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 Installation BLAS
 -----------------
 sudo apt-get install libatlas-base-dev
+
 sudo apt-get install python
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
 sudo apt-get install python-pip
@@ -93,9 +94,9 @@ INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
 LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
 ...
 
-make all
-make test
-make runtest
+make all -j16
+make test -j16
+make runtest -j16
 
 [----------] Global test environment tear-down
 [==========] 1162 tests from 152 test cases ran. (41557 ms total)
