@@ -26,6 +26,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 
 Installation BLAS
 -----------------
+apt install liblapack-dev liblapack3 libopenblas-base libopenblas-dev
 sudo apt-get install libatlas-base-dev
 
 sudo apt-get install python
