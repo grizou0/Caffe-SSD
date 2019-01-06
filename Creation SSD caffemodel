@@ -8,6 +8,7 @@ tar -xvf VOCtrainval_11-May-2012.tar
 tar -xvf VOCtrainval_06-Nov-2007.tar
 tar -xvf VOCtest_06-Nov-2007.tar
 ->on retrouve un repertoire VOCdevkit, ces sont les images du train.
+->on crée un répertoire data dans la racine home/nom/ et on place VOCdevkit dans celui-ci.
 -----------------------------------------------------------------------------------------
 On télécharge le modele caffe-SSD 
 https://github.com/weiliu89/caffe/tree/ssd
