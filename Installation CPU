@@ -26,7 +26,7 @@ sudo apt-get install --no-install-recommends libboost-all-dev
 
 Installation BLAS
 -----------------
-apt install liblapack-dev liblapack3 libopenblas-base libopenblas-dev
+sudo apt install liblapack-dev liblapack3 libopenblas-base libopenblas-dev
 sudo apt-get install libatlas-base-dev
 
 sudo apt-get install python
@@ -44,7 +44,7 @@ find -name requirements.txt
          ./python/requirements.txt
          ./examples/web_demo/requirements.txt
 cd python
-for req in $(cat requirements.txt); do sudo pip install $req; done
+for req in $(cat requirements.txt); do pip install $req; done
 cd ..
 python -m site
 ->
