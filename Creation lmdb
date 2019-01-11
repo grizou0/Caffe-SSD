@@ -1,2 +1,6 @@
-Ici, j'utilise les fichiers:
+Ici, j'utilise les fichiers:opt/movidius/ssd-caffe/data/ILSVRC2016/
+            create_list.py
+            create_data.sh
+            
 Le but est de créer les fihciers lmdb utilisable pour le trainer ssd_pascal.py et correspondant au images JPEG personnelles.
+create_list.py
