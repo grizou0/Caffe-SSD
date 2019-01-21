@@ -54,5 +54,11 @@ CUDA_ARCH :=# -gencode arch=compute_20,code=sm_20 \
 		-gencode arch=compute_61,code=sm_61 \
 		-gencode arch=compute_61,code=compute_61
 -------------------------------------------------------------------------------------------------------------------------------
+Erreur ssd_pascal_py (training)
+out of memory ->changer 
+# Divide the mini-batch to different GPUs.
+batch_size = 10    #evite le memory out
+accum_batch_size = 10
+---------------------------------------------------------------------------------------------
 
 
