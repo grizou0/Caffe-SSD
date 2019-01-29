@@ -165,7 +165,7 @@ make runtest ->ok
 ----------------------------------
 Configuration python
 --------------------
-make pycaffe
+make pycaffe   #permet import caffe en python
 make pytest
 
 ->ImportError: No module named skimage.io
