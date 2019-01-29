@@ -39,7 +39,7 @@ First step
 ----------
 Télécharger ncsdk v2, le pack movidius installe également le pack caffe et ssd-caffe en /opt/movidius/
 
-Depuis une nouvelle installation Ubuntu16.04, on install caffe en mode CPU
+Depuis une nouvelle installation Ubuntu16.04, on installe ensuite caffe en mode CPU
 En mode CPU, le training (ssd_pascal.py) est très lent mais fonctionnel.
 
 ssd_pascal_webcam.py fonctionne moyennant la modification mais est très lent.
