@@ -1,7 +1,7 @@
 # Caffe-SSD
 Utilisant le sitck usb movidius, j'utilise la librairie ncsdk pour compiler le caffemodel en fichier graph (utilisable pour le module).
 Les applications movidius ne fonctionnent pas si caffe et ssd-caffe sont installées en premier (probleme de PYTHONPATH);
-Pour l'installation de caffe et ssd-caffe , le pack ncsdk v2 les install après automatiquement dans le répertoire: opt/movidius/.
+Pour l'installation de caffe et ssd-caffe , le pack ncsdk v2 les installe après automatiquement dans le répertoire: opt/movidius/.
 
 Installation caffe ubuntu 16.04.(ne fonctionne pas sur la version 18)
 On installe simplement les pack par:
@@ -13,7 +13,7 @@ make examples.
 Apres installation on retrouve mvNCCompile pour transformer le caffemodel en fichier graph (utilisable avec movidius).
 Pour l'installation de ssd-caffe
 https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
-https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU      (en test)
+https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU 
 
 
 Tester avec Ubuntu 16.04 et modele caffe-ssd (fonctionne avec le modele caffe) 
@@ -46,5 +46,5 @@ Second Step
 -----------
 On ajoute cuda. Cela permet de faire tourner caffe en mode GPU
 https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU
-En test.
+
 
