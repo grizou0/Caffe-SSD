@@ -13,8 +13,9 @@ dans le repertoire ncsdk, on lance l'installation par
 make install
 make examples.
 insérer le path python
-
+sudo nano ~/.bashrc
 export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"
+source sudo nano ~/.bashrc
 
 Apres installation on retrouve mvNCCompile pour transformer le caffemodel en fichier graph (utilisable avec movidius).
 Pour l'installation de ssd-caffe
