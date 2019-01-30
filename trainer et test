@@ -3,4 +3,5 @@ Configuration
 
 
 Le test se fait avec ssd_pascal_webcam.py par exemple.
+La détection commence à partir de 2000 iterations.
 Configuration
