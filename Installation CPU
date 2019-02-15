@@ -36,6 +36,8 @@ sudo apt-get install python-pip
 
     sudo apt-get update
     sudo apt-get install git
+Si on install caffe indépendament (autre que via ncsdk v2):
+(Dans le cas ou on install caffe via ncsdk V2, caffe et ssd-caffe se trouve en /opt/movidius/)
 
 se placer dans la racine home/xx/
 git clone https://github.com/BVLC/caffe.git
