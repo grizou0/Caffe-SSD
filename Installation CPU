@@ -14,7 +14,7 @@ Apres de long essais , j'ai enfin trouver la solution pour installer correctemen
 le modele caffe.
 Dans un premier temps, on install caffe sous ubuntu16.04 en mode CPU.
 On ajoute ensuite les modules désirés.
-Ubuntu16.04 en mode CPU ne fonctionne pas. Seul le mode GPU (CUDA) fonctionne.
+Ubuntu16.04 en mode CPU le trainer est très lent. Après essais concluant, on peut passer en  mode GPU (CUDA).
 On ajoutera CUDA après.
 
 Installation mode CPU
