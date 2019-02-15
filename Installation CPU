@@ -39,9 +39,9 @@ sudo apt-get install python-pip
 Si on install caffe indépendament (autre que via ncsdk v2):
 (Dans le cas ou on install caffe via ncsdk V2, caffe et ssd-caffe se trouve en /opt/movidius/)
 
-se placer dans la racine home/xx/
-git clone https://github.com/BVLC/caffe.git
-cd caffe
+se placer dans la racine home/xx/ ou opt/movidius/ssd-caffe suivant le cas.
+git clone https://github.com/BVLC/caffe.git (pas besoin  si ncsdk V2)
+cd caffe (ou ssd-caffe)
 find -name requirements.txt
          ./python/requirements.txt
          ./examples/web_demo/requirements.txt
