@@ -1,3 +1,11 @@
+ RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility
+
+reinstaller numpy:
+
+sudo pip uninstall numpy
+sudo pip install numpy==1.14.5
+ 
+---------------------------------------------------------------------------------------------------------------------------------
 /usr/bin/ld : ne peut trouver -lhdf5_hl
 /usr/bin/ld : ne peut trouver -lhdf5
 collect2: error: ld returned 1 exit status
