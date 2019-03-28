@@ -7,7 +7,13 @@ L'installation se fait depuis un ubuntu16.04 neuf, sans opencv,....
 Installation caffe ubuntu 16.04.(ne fonctionne pas sur la version 18)
 On installe simplement les pack par:
 git clone -b ncsdk2 https://github.com/movidius/ncsdk.git
+
 (intall git en premier par sudo apt intall git)
+
+Execution automatique:
+
+git clone -b ncsdk2 http://github.com/Movidius/ncsdk && cd ncsdk && make install
+
 
 dans le repertoire ncsdk, on lance l'installation par
 make install
