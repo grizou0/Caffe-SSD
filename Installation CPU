@@ -109,7 +109,7 @@ make runtest -j16
 Configuration python
 --------------------
 Suivant python/requirements.txt 
-pip install pydot
+sudo pip install pydot
 sudo apt-get install graphviz
 sudo apt-get install python-matplotlib python-numpy python-pil python-scipy
 sudo apt-get install build-essential cython
