@@ -23,6 +23,9 @@ done
 Ensuite on utilise labelImg.py [https://github.com/tzutalin/labelImg] pour créer les fichier xml correspondant au image.
 -----------------------------------------------------
 2- creation et  des fichiers test.txt et trainval.txt
+Dans home/jp/data/VOCdevkit/VOC2012/ImageSets/Main, on crée un fichier trainval.txt
+contenant les images jpg et xml (sans l'extension)
+
 on utilise le script create_list.sh 
 
 Configuration
@@ -91,6 +94,21 @@ item {
   display_name: "bicycle"
 }
 ........
+--------------------------------------------------------------------------------------------------------
+train 
+------
+Télécharger et placer le caffemodel de base dans models/VGGNet et modifier les path du fichier ssd_pascal.py.
+Spécifier le mode GPU ou CPU 
+https://github.com/conner99/VGGNet/blob/master/VGG_ILSVRC_16_layers_fc_reduced.caffemodel
+dans la racine opt/movidius/ssd-caffe/ 
+lancer: python examples/VOCdevkit/ssd_pascal.py 
 
+^Ĉ pour arrêter, les fichier caffemodel et solverstate sont créé dans models/VGGNet/VOC0712/SSD_300x300.
 
+Teste
+-----
+Modifier le path et le mode CPU ou GPU du fichier ssd_pascal_webcam.py
+A partir de : ssd-caffe
+lancer:
+jp@jp-G750JH://opt/movidius/ssd-caffe$ python examples/VOCdevkit/ssd_pascal_webcam.py
 
