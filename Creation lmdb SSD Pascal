@@ -4,15 +4,21 @@ Ici, j'utilise les fichiers:opt/movidius/ssd-caffe/data/ILSVRC2016/
             
 Le but est de créer les fihciers lmdb utilisable pour le trainer ssd_pascal.py et correspondant au images JPEG personnelles.
 create_list.py
+Point de départ
+---------------
+On a des images dans le répertoire JPEGImages
+On crée des fichier xml délimitant ces images dans le répertoire Annotations à l'aide de labelImg
+
+
 ----------------------------------------------------
-1- resize image
+1- resize image en 256*256
 Ici, on crée un script "size.sh" et on attribue les droits chmod +x size.sh
 
 for name in /home/jp/data/myssd/VOC2012/JPEGImages/JP*.JPEG; do
     convert -resize 256x256 $name $name
 done
 
-Ensuite on utilise labelImg.py (telechargeable) pour créer les fichier xml correspondant au image.
+Ensuite on utilise labelImg.py [https://github.com/tzutalin/labelImg] pour créer les fichier xml correspondant au image.
 -----------------------------------------------------
 2- creation et  des fichiers test.txt et trainval.txt
 on utilise le script create_list
