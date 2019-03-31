@@ -25,7 +25,6 @@ Ensuite on utilise labelImg.py [https://github.com/tzutalin/labelImg] pour crée
 2- creation et  des fichiers test.txt et trainval.txt
 on utilise le script create_list.sh 
 
-On lance ./data/myssd/create_list.sh
 Configuration
 ---------------------------------------
  #!/bin/bash
@@ -45,6 +44,19 @@ do
     if [[ $dataset == "test" && $name == "VOC2012" ]]
     then
       continue
+```      
+jp@jp-G750JH://opt/movidius/ssd-caffe/examples/VOCdevkit$ ./create_list.sh
+Create list for VOC2007 trainval...
+Create list for VOC2012 trainval...
+Create list for VOC2007 test...
+I0331 11:45:12.433405  8991 get_image_size.cpp:61] A total of 4952 images.
+I0331 11:45:14.381628  8991 get_image_size.cpp:100] Processed 1000 files.
+I0331 11:45:16.243535  8991 get_image_size.cpp:100] Processed 2000 files.
+I0331 11:45:18.121819  8991 get_image_size.cpp:100] Processed 3000 files.
+I0331 11:45:19.977823  8991 get_image_size.cpp:100] Processed 4000 files.
+I0331 11:45:21.753190  8991 get_image_size.cpp:105] Processed 4952 files.
+jp@jp-G750JH://opt/movidius/ssd-caffe/examples/VOCdevkit$ 
+```
 ----------------------------------------------------- 
 3- Creation lmdb
 On utilise create_data.sh
