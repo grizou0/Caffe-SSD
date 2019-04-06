@@ -204,3 +204,6 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 -----------------------------------------------------
 Voila, on peut passer à la suite, creation d'un caffemodel.
+Remarque:
+Dans l'utilisation de MobileNet-SSD-master, CUDNN pose un probleme en lançant la demo.py.
+->compiler sans CUDNN.
