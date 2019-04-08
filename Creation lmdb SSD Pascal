@@ -93,9 +93,22 @@ item {
   label: 2
   display_name: "bicycle"
 }
-........
---------------------------------------------------------------------------------------------------------
-train 
+# Resume:
+home/jp/data/VOCdevkit/ ou se trouve test.txt et trainval.txt
+
+opt/movidius/ssd-caffe/examples/VOCdevkit/
+ou se trouve les fichier create_list.sh et create_data.sh 
+Apres create_list, on retrouve les fichiers:
+test.txt, test_name_size.txt et trainval.txt
+
+opt/movidius/ssd-caffe/data/VOC0712/
+ou se trouve les fichiers labelmap.prototxt , test.txt, trainval.txt, trainval1.txt et val2.txt avant de lancer
+create_data.sh
+Create_data a besoin de data/VOC0712/test.txt, val2.txt et trainval1.txt et labelmap.prototxt.
+Celui-ci crée un repertoire lmdb dans:
+home/jp/data/VOCdevkit/lmdn/DET/VOC0712_val2_lmdb et VOC0712_trainval1_lmdb
+# ---------------------------------------------------------------------------------------------------
+# train
 ------
 Télécharger et placer le caffemodel de base dans models/VGGNet et modifier les path du fichier ssd_pascal.py.
 Spécifier le mode GPU ou CPU 
