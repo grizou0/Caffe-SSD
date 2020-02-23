@@ -1,0 +1,11 @@
+1 - gen_model.sh
+Enregistre les modeles ssd dans le répertoire Example
+2- create_lmdb.sh
+Suppression des repertoires lmdb en premier.
+Il faut un fichier labelmap.prototxt et le fichier solver_train.prototxt
+>creation des fichier lmdb
+3-train.sh 
+creation caffemodel dans le repertoire snapshot
+4-python demo.py
+teste les image dans example a partir des fichier caffemodel (doit etre spécifié dans le fichier demo.py)
+
