@@ -8,7 +8,7 @@ Installation caffe ubuntu 16.04.(ne fonctionne pas sur la version 18)
 On installe simplement les pack par:                      
 git clone -b ncsdk2 https://github.com/movidius/ncsdk.git
 
-(install git en premier par sudo apt intall git)
+(install git en premier par sudo apt install git)
 
 Execution automatique:
 
