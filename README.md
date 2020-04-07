@@ -5,24 +5,24 @@ Pour l'installation de caffe et ssd-caffe , le pack ncsdk v2 les installe après
 L'installation se fait depuis un ubuntu16.04 neuf, sans opencv,....
 
 Installation caffe ubuntu 16.04.(ne fonctionne pas sur la version 18)
-On installe simplement les pack par:
+On installe simplement les pack par:                      
 git clone -b ncsdk2 https://github.com/movidius/ncsdk.git
 
-(intall git en premier par sudo apt intall git)
+(install git en premier par sudo apt intall git)
 
 Execution automatique:
 
 git clone -b ncsdk2 http://github.com/Movidius/ncsdk && cd ncsdk && make install
 
 
-dans le repertoire ncsdk, on lance l'installation par
-make install
-make examples.
-On vérifie le path python après installation.
+dans le repertoire ncsdk, on lance l'installation par                  
+make install                                  
+make examples.                                 
+On vérifie le path python après installation.                         
 
-sudo nano ~/.bashrc
-export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"
-source sudo nano ~/.bashrc
+sudo nano ~/.bashrc                                              
+export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"                                     
+source sudo nano ~/.bashrc                                     
 
 Apres installation on retrouve mvNCCompile pour transformer le caffemodel en fichier graph (utilisable avec movidius).
 Pour l'installation de ssd-caffe
