@@ -18,7 +18,8 @@ git clone -b ncsdk2 http://github.com/Movidius/ncsdk && cd ncsdk && make install
 dans le repertoire ncsdk, on lance l'installation par                  
 make install                                  
 make examples.                                 
-On vérifie le path python après installation.                         
+On vérifie le path python dans le bashrc après installation.                         
+La ligne export est en fin de fichier.                                    
 
 sudo nano ~/.bashrc                                              
 export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"                                     
