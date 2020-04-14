@@ -1,4 +1,8 @@
-# Caffe-SSD
+# NCSDK V2 obselete, on utilise openvino. A partir de ssd-caffe, on convertit les fichiers caffemodel avec openvino.
+
+
+
+# Caffe-SSD   (obselete)
 Utilisant le sitck usb movidius, j'utilise la librairie ncsdk pour compiler le caffemodel en fichier graph (utilisable pour le module).
 Les applications movidius ne fonctionnent pas si caffe et ssd-caffe sont installées en premier (probleme de PYTHONPATH);
 Pour l'installation de caffe et ssd-caffe , le pack ncsdk v2 les installe après automatiquement dans le répertoire: opt/movidius/.
