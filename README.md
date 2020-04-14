@@ -44,6 +44,5 @@ https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU
 
 Step 3
 ------
-Après avoir installé ncsdk v2, on peut utiliser les examples NCAPPZOO V2                                                     
-git clone -b ncsdk2 https://github.com/movidius/ncappzoo.git                                
+Apres installation , on pourra consulter les differents fichiers et installer notre modele ChienChat                             
 
