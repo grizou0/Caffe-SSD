@@ -1,35 +1,8 @@
 # NCSDK V2 obselete, on utilise openvino. A partir de ssd-caffe, on convertit les fichiers caffemodel avec openvino.
+(voir python mo-caffe.py)
 
 
-
-# Caffe-SSD   (obselete)
-Utilisant le sitck usb movidius, j'utilise la librairie ncsdk pour compiler le caffemodel en fichier graph (utilisable pour le module).
-Les applications movidius ne fonctionnent pas si caffe et ssd-caffe sont installées en premier (probleme de PYTHONPATH);
-Pour l'installation de caffe et ssd-caffe , le pack ncsdk v2 les installe après automatiquement dans le répertoire: opt/movidius/.
-L'installation se fait depuis un ubuntu16.04 neuf, sans opencv,....
-
-Installation caffe ubuntu 16.04.(ne fonctionne pas sur la version 18)
-On installe simplement les pack par:                      
-git clone -b ncsdk2 https://github.com/movidius/ncsdk.git
-
-(install git en premier par sudo apt install git)
-
-Execution automatique:
-
-git clone -b ncsdk2 http://github.com/Movidius/ncsdk && cd ncsdk && make install
-
-
-dans le repertoire ncsdk, on lance l'installation par                  
-make install                                  
-make examples.                                 
-On vérifie le path python dans le bashrc après installation.                         
-La ligne export est en fin de fichier.                                    
-
-sudo nano ~/.bashrc                                              
-export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"                                     
-source sudo nano ~/.bashrc                                     
-
-Apres installation on retrouve mvNCCompile pour transformer le caffemodel en fichier graph (utilisable avec movidius).           
+        
 Pour l'installation de ssd-caffe, on se refère au pack sur ce github.                     
 https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU                                    
 https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU                             
@@ -49,7 +22,9 @@ Le but étant de créer un modelcaffe utilisable avec la compilation du fichier 
 
 First step
 ----------
-Télécharger ncsdk v2, le pack movidius installe également le pack caffe et ssd-caffe en /opt/movidius/                   
+voir reference :http://caffe.berkeleyvision.org/installation.html#compilation
+On télécharge les fichiers caffe-master
+                  
 
 Depuis une nouvelle installation Ubuntu16.04, on installe ensuite caffe en mode CPU                           
 En mode CPU, le training (ssd_pascal.py) est très lent mais fonctionnel.                               
