@@ -1,0 +1,16 @@
+# Creation d'un répertoire dans /opt
+Exemple :  
+cd opt/intel
+# installation du package caffe
+git clone https://github.com/weiliu89/caffe.git
+cd caffe
+git checkout ssd
+# Creatikon du fichier de compilation Makefile.config
+cp MAkefile.config.example Makefile.cinfig
+et on modifie les options dans ce fichier Makefile.config
+
+# Compilation
+make -j16 
+make py
+make test
+make runtest
