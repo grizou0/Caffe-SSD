@@ -10,10 +10,14 @@ cp MAkefile.config.example Makefile.cinfig
 et on modifie les options dans ce fichier Makefile.config
 (voir référence dans installation CPU ou GPU)
 Modification du chemin cuda par cuda-10.2 (suivant la version cuda).
+https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU
+
 # Compilation
+# -----------
 make clean
 make all
 make py
 make test
 optionnel:
 make runtest
+Si tout est correcte, on passe à la creation de la base de donnée.
