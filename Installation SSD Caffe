@@ -10,7 +10,8 @@ cp MAkefile.config.example Makefile.cinfig
 et on modifie les options dans ce fichier Makefile.config
 
 # Compilation
-make -j16 
+make clean
+make all
 make py
 make test
 make runtest
