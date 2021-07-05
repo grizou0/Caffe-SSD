@@ -5,10 +5,11 @@ cd opt/intel
 git clone https://github.com/weiliu89/caffe.git
 cd caffe
 git checkout ssd
-# Creatikon du fichier de compilation Makefile.config
+# Creation du fichier de compilation Makefile.config
 cp MAkefile.config.example Makefile.cinfig
 et on modifie les options dans ce fichier Makefile.config
-
+(voir référence dans installation CPU ou GPU)
+Modification du chemin cuda par cuda-10.2 (suivant la version cuda).
 # Compilation
 make clean
 make all
