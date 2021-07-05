@@ -15,4 +15,5 @@ make clean
 make all
 make py
 make test
+optionnel:
 make runtest
