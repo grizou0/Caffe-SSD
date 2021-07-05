@@ -37,4 +37,7 @@ make py
 make test
 optionnel:
 make runtest
-Si tout est correcte, on passe à la creation de la base de donnée.
+# Si tout est correcte, on passe à la creation de la base de donnée.
+# Ensuite , on passe au trainer
+# Test 
+# Conversion caffemodel en fichier movidius.
