@@ -47,4 +47,12 @@ sudo apt-get install python-skimage
 make pycaffe
 make pytest
 
+Une derniere chose, ajouter le PATH caffe au Python:
+sudo nano ~/.bashrc
+export PYTHONPATH=/home/jp/caffe/python
+source ~/.bashrc
+
+On verifie 
+python
+>>import caffe
 
