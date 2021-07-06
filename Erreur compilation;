@@ -63,7 +63,7 @@ CUDA_ARCH :=# -gencode arch=compute_20,code=sm_20 \
 		-gencode arch=compute_61,code=compute_61
 -------------------------------------------------------------------------------------------------------------------------------
 Erreur ssd_pascal_py (training)
-out of memory ->changer 
+out of memory ->changer dans le fichier par example: ChienChat/example/MobileNetSSD_train.prototxt
 # Divide the mini-batch to different GPUs.
 batch_size = 10    #evite le memory out, diminuer après 10000 iterations
 accum_batch_size = 10
