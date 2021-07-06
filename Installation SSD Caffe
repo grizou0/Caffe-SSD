@@ -38,4 +38,13 @@ make runtest -j16
 
 # Si tout est correcte, on continue la configuration de python
 Voir: https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
+sudo pip install pydot
+sudo apt-get install graphviz
+sudo apt-get install python-matplotlib python-numpy python-pil python-scipy
+sudo apt-get install build-essential cython
+sudo apt-get install python-skimage
+
+make pycaffe
+make pytest
+
 
