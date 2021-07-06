@@ -1,43 +1,41 @@
-# Creation d'un répertoire dans /opt
-Exemple :  
-cd opt/intel
+# Installation de caffe
+# Dans un premier temps, on se place dans le dossier personnel 
 # installation du package caffe
 git clone https://github.com/weiliu89/caffe.git
 cd caffe
 git checkout ssd
+
 # Creation du fichier de compilation Makefile.config
+# On commence par le mode CPU (très lent)
+# On fait une copie du fichier de compilation Makefile.config.example
 cp Makefile.config.example Makefile.config
 et on modifie les options dans ce fichier Makefile.config
-(voir référence dans installation CPU ou GPU)
-USE_CUDNN := 1                    #pour activer le mode GPU
-CUDA_DIR := /usr/local/cuda-10.2  #chemin cuda
-Suivant la version cuda, 
-CUDA_ARCH := -gencode arch=compute_30,code=sm_30 \
-             -gencode arch=compute_35,code=sm_35 \
-             -gencode arch=compute_50,code=sm_50 \
-             -gencode arch=compute_52,code=sm_52 \
-             -gencode arch=compute_61,code=sm_61 \
+
+(voir référence dans installation CPU)
+CPU_ONLY :=1
+# Uncomment if you're using OpenCV 3
+OPENCV_VERSION := 3 # obligatoire si opencv >2 est installé. Dans mon cas j'ai opencv-3.4.0
+                    # sinon laisser le "#"
+
+....
+# NOTE: this is required only if you will compile the python interface.
+# We need to be able to find Python.h and numpy/arrayobject.h.
+PYTHON_INCLUDE := /usr/include/python2.7 \
+                 /home/jp/.local/lib/python2.7/site-packages/numpy/core/include
+....
 # Uncomment to support layers written in Python (will link against Python libs)
 WITH_PYTHON_LAYER := 1
+.....
 # Whatever else you find you need goes here.
 INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
-LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu$
-USE_PKG_CONFIG := 1 #liaison OpenCV si l'installation opencv est avec openvino
-
-
-
-Modification du chemin cuda par cuda-10.2 (suivant la version cuda).
-https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20GPU
-
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
+...
 # Compilation
-# -----------
-make clean
-make all
-make py
-make test
-optionnel:
-make runtest
-# Si tout est correcte, on passe à la creation de la base de donnée.
-# Ensuite , on passe au trainer
-# Test 
-# Conversion caffemodel en fichier movidius.
+
+make all -j16
+make test -j16
+make runtest -j16
+
+# Si tout est correcte, on continue la configuration de python
+Voir: https://github.com/grizou0/Caffe-SSD/blob/master/Installation%20CPU
+
