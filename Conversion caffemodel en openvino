@@ -1,0 +1,50 @@
+Au depart, le train calcul le model "caffemodel" dans le répertoire snapshot.
+Pour l'utiliser avec le module movidius, il faut le convertir en bin, et xml.
+
+
+Installation Openvino
+---------------------
+Installation model_optimizer (mo_caffe)
+
+$>source /opt/intel/openvino/bin/setupvars.sh
+cd /opt/intel/openvino/deployment_tools/model_optimizer/install_prerequisites
+sudo ./install_prerequisites.sh
+
+
+Conversion caffemodel ->bin utilisable pour openvino
+----------------------------------------------------
+on utilise mo_caffe.py pour convertir model.caffemodel et model.prototxt -> bin et xml
+cd /opt/intel/openvino/deployment_tools/model_optimizer
+source /opt/intel/openvino/bin/setupvars.sh
+python3 mo_caffe.py --input_model _iter_4080.caffemodel  --input_proto MobileNetSSD_deploy.prototxt --scale 127.5 --progress  
+
+->>> creation de _iter_4080.bin  et _iter_4080.xml utilisable comme modele openvino (voir
+Conversion pour raspberry pi:
+
+
+(Utiliser --generate_deprecated_IR-V7 pour le raspberry, mais pas pour le raspberry pi4)
+
+
+python3 mo_caffe.py --input_model _iter_5229.caffemodel --input_proto MobileNetSSD_deploy.prototxt --scale 127.5 --progress --generate_deprecated_IR_V7
+
+
+
+Compilation Ubuntu
+------------------
+Le programme source se trouve en opt/intel/openvino/inference_engine/samples/cpp/Mydetect/Mydetect.cpp
+
+se placer dans le repertoire home/jp/inference_engine_samples_build
+$/ source /opt/intel/openvino/bin/setupvars.sh
+$/ make -j8 Mydetect
+->make crée un fichier exécutable dans intel64/Release
+On lance le fichier par:
+./intel64/Release/Mydetect
+Il faut au prealable le model.bin et model.xml dans le répertoire inference_engine_samples_build
+
+
+Compilation Raspberry
+---------------------
+voir fichier openvino sur raspberry
+utiliser le script  build_samples dans opt/intel/openvino
+modifier le fichier CMakeList.txt 
+erreur segmentation ->compiler sur armv7l ->-march=armv7-a
